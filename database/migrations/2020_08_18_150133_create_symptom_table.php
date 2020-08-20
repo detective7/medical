@@ -17,7 +17,9 @@ class CreateSymptomTable extends Migration
             $table->id();
             $table->string('zh_name');
             $table->string('url');
-            $table->text('other_name')->comment('Separated by ","');
+            $table->text('other_names')->comment('Separated by ","');
+            $table->integer("bodypart_id");
+            $table->boolean('common');
             $table->timestamps();
         });
     }

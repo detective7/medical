@@ -1,31 +1,32 @@
-<p align="center">Medical</p>
+#Medical
 
-<p>Build Laravel</p>
-`
+Build Laravel
+
+```
 composer install --ignore-platform-reqs
-`
+```
 
-<p>or</p>
-`
+or
+```
 composer update --ignore-platform-reqs
-`
+```
 
-<p>Generate APP Key</p>
-`
+Generate APP Key
+```
 php artisan key:generate
-`
+```
 
-<p>Generate Model</p>
-`
+Generate Model
+```
 composer require ignasbernotas/laravel-model-generator
-`
+```
 
-<p>app/Providers/AppServiceProvider.php</p>
-`
+app/Providers/AppServiceProvider.php
+```
 public function register()
 {
     if ($this->app->environment() == 'local') {
         $this->app->register('Iber\Generator\ModelGeneratorProvider');
     }
 }
-`
+```

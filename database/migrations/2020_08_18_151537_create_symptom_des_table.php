@@ -13,7 +13,7 @@ class CreateSymptomDesTable extends Migration
      */
     public function up()
     {
-        Schema::create('symptom_des', function (Blueprint $table) {
+        Schema::create('mdc_symptom_des', function (Blueprint $table) {
             $table->id();
             $table->integer("symptom_id");
             $table->text("zh_symptom_des");
@@ -29,6 +29,6 @@ class CreateSymptomDesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('symptom_des');
+        Schema::dropIfExists('mdc_symptom_des');
     }
 }

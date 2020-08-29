@@ -15,7 +15,7 @@ class CreateSymptomDesTable extends Migration
     {
         Schema::create('mdc_symptom_des', function (Blueprint $table) {
             $table->id();
-            $table->integer("symptom_id");
+            $table->integer("symptoms_id");
             $table->text("zh_symptom_des");
             $table->integer("order");
             $table->timestamps();

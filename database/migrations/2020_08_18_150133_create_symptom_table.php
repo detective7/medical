@@ -19,7 +19,7 @@ class CreateSymptomTable extends Migration
             $table->string('url');
             $table->text('other_names')->comment('Separated by ","');
             $table->integer("bodypart_id");
-            $table->boolean('common');
+            $table->boolean('common');// 是否常見病症
             $table->timestamps();
         });
     }

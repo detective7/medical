@@ -13,4 +13,10 @@ class SymptomDes extends Model
         'zh_symptom_des',
         'order'
     ];
+
+    public function symptoms()
+    {
+        return $this->belongsTo(Symptoms::class, 'symptom_id');
+    }
+
 }

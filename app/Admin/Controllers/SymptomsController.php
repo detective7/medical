@@ -34,8 +34,8 @@ class SymptomsController extends AdminController
         $grid->column('other_names', __('Other names'));
         $grid->column('bodypart_id', __('Bodypart id'));
         $grid->column('common', __('Common'));
-        $grid->column('symptomDes', 'description count')->display(function ($symptomDes) {
-            $count = count($symptomDes);
+        $grid->column('symptomdes', 'description count')->display(function ($symptomdes) {
+            $count = count($symptomdes);
             return "<span class='label label-info'>{$count}</span>";
         });
         $grid->column('created_at', __('Created at'))->date('Y-m-d H:i:s');
@@ -58,12 +58,12 @@ class SymptomsController extends AdminController
         $show->field('zh_name', __('Zh name'));
         $show->field('url', __('Url'));
         $show->field('other_names', __('Other names'));
-        $show->symptomDes( __('description'), function ($symptomDes) {
+        $show->symptomdes( __('description'), function ($symptomdes) {
 
-            $symptomDes->resource('/admin/symptomDes');
+            $symptomdes->resource('/admin/symptomdes');
         
-            $symptomDes->id();
-            $symptomDes->zh_symptom_des()->limit(10);
+            $symptomdes->id();
+            $symptomdes->zh_symptom_des()->limit(10);
         
         });
         // $show->field('bodypart_id', __('Bodypart id'));
@@ -90,29 +90,22 @@ class SymptomsController extends AdminController
         $form->text('zh_name', __('Symptom name'))->rules('required');
         $form->url('url', __('Url'));
         $form->text('other_names', __('other names'));
-        $form->hasMany('symptomDes', __('description'), function (Form\NestedForm $form) {
-            $form->text('zh_symptom_des');
-        })->rules('required');
+
+        $form->hasMany('symptomdes', __('description'), function (Form\NestedForm $form) {
+            $form->text('zh_symptom_des', "detail");
+
+        });
+
         // $form->number('bodypart_id', __('Bodypart id'));
         $form->select( 'bodypart_id', __('Bodypart'))->options(BodyParts::all()->pluck('zh_name', 'id'))->rules('required');
+        
         $form->switch('common', __('Common'));
         $form->footer(function ($footer) {
-
-            // 去掉`重置`按钮
             $footer->disableReset();
-        
-            // 去掉`提交`按钮
             // $footer->disableSubmit();
-        
-            // 去掉`查看`checkbox
             $footer->disableViewCheck();
-        
-            // 去掉`继续编辑`checkbox
             $footer->disableEditingCheck();
-        
-            // 去掉`继续创建`checkbox
             $footer->disableCreatingCheck();
-        
         });
 
         return $form;

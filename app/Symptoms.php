@@ -23,7 +23,7 @@ class Symptoms extends Model
         return $this->belongsTo(BodyParts::class, 'bodypart_id');
     }
 
-    public function symptomDes()
+    public function symptomdes()
     {
         return $this->hasMany(SymptomDes::class);
     }

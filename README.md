@@ -32,7 +32,7 @@ public function register()
 ```
 
 According to https://zhuanlan.zhihu.com/p/68798578
-![RUNOOB Edit1](http://static.runoob.com/images/runoob-logo.png)
+
 
 Dashboard class under vendor\encore\laravel-admin\src\Controllers\
 
@@ -67,6 +67,27 @@ public static function system_developer()
 }
 ```
 
+
+>\medical\vendor\encore\laravel-admin\resources\views\dashboard\system_developer.blade.php
+```
+<div class="box box-default">
+    <div class="box-header with-border">
+        <h3 class="box-title">System Developer</h3>
+        <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+    </div>
+    <div class="box-body">
+        <ul class="products-list product-list-in-box">
+            @foreach($developer as $key=>$val)
+                <li class="item"><span style="font-weight: bold">{{ucfirst($key)}}:</span> {{$val}} </li>
+            @endforeach
+        </ul>
+    </div>
+</div>
+```
 
 
 

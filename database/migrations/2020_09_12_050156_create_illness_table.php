@@ -20,12 +20,12 @@ class CreateIllnessTable extends Migration
             $table->text('other_names')->comment('Separated by ","');
             $table->integer("subject_id");
             // 病症与病徵单独建关联表，还有额外的病症描述 and $table->boolean('main_symptom');
-            $table->text('high_ranking_person');
-            $table->text('prevention_method');
-            $table->text('inspection_and_diagnosis');
-            $table->text('treatment_method');
+            $table->text('high_ranking_person')->nullable();
+            $table->text('prevention_method')->nullable();
+            $table->text('inspection_and_diagnosis')->nullable();
+            $table->text('treatment_method')->nullable();
             $table->text('case_sharing')->comment('Separated by ","')->nullable();
-            $table->text('relative_illness')->comment('Separated by ",", list by id');
+            $table->text('relative_illness')->comment('Separated by ",", list by id')->nullable();
             $table->string('source_from')->nullable();
             $table->timestamps();
         });

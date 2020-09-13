@@ -16,5 +16,6 @@ Route::group([
     $router->resource('bodyPart', BodyPartsController::class);
     $router->resource('symptom', SymptomsController::class);
     $router->resource('symptomDes', SymptomDesController::class);
+    $router->resource('illness', IllnessController::class);
 
 });

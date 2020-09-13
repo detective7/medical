@@ -19,3 +19,6 @@
  */
 
 Encore\Admin\Form::forget(['map', 'editor']);
+// Admin::js('/assets/admin_js/addDelOtherNames.js');
+Admin::css('/assets/admin_css/otherNames.css');
+Admin::script("$(document.body).append('<script src=\'/assets/admin_js/otherNames.js\'>');");

@@ -32,11 +32,17 @@ class SymptomsController extends AdminController
         $grid->column('zh_name', __('Zh name'));
         $grid->column('url', __('Url'));
         $grid->column('other_names', __('Other names'));
-        $grid->column('bodypart_id', __('Bodypart id'));
+        $grid->column('bodypart_id', __('Bodypart id'))->display(function ($bodypart_id) {
+            return BodyParts::find($bodypart_id)->zh_name;
+        });
         $grid->column('common', __('Common'));
-        $grid->column('symptomdes', 'description count')->display(function ($symptomdes) {
+        $grid->column('symptomdes', 'description')->display(function ($symptomdes) {
             $count = count($symptomdes);
-            return "<span class='label label-info'>{$count}</span>";
+            $display = "";
+            for ($i=0; $i < $count; $i++) { 
+                $display .= "<span class='label label-info'>{$symptomdes[$i]["zh_symptom_des"]}</span> ";
+            }
+            return $display;
         });
         $grid->column('created_at', __('Created at'))->date('Y-m-d H:i:s');
         $grid->column('updated_at', __('Updated at'))->date('Y-m-d H:i:s');
@@ -89,7 +95,26 @@ class SymptomsController extends AdminController
 
         $form->text('zh_name', __('Symptom name'))->rules('required');
         $form->url('url', __('Url'));
-        $form->text('other_names', __('other names'));
+        if($form->isEditing()){
+            $symptomId = request()->route()->parameter('symptom');
+            $symptom = $form->model()->find($symptomId);
+            $other_names = explode(",",$symptom->other_names);
+            for ($i=0; $i < count($other_names); $i++) { 
+                $form->text('other_names', ($i==0?__('other names'):"+"))->attribute(['name'=>'other_names[]','value'=>$other_names[$i]]);
+            }
+            // print_r(count($other_names));
+            // die;
+        }else{
+            $form->text('other_names', __('other names'))->attribute(['name'=>'other_names[]']);
+        }
+        
+        $form->saving(function (Form $form) {
+            if(is_array($form->other_names)){
+                $form->other_names = implode(",",$form->other_names);
+            }
+            $this->beforeStatus = $form->model()->pass_status;
+        });
+        
 
         $form->hasMany('symptomdes', __('description'), function (Form\NestedForm $form) {
             $form->text('zh_symptom_des', "detail");
@@ -100,6 +125,7 @@ class SymptomsController extends AdminController
         $form->select( 'bodypart_id', __('Bodypart'))->options(BodyParts::all()->pluck('zh_name', 'id'))->rules('required');
         
         $form->switch('common', __('Common'));
+
         $form->footer(function ($footer) {
             $footer->disableReset();
             // $footer->disableSubmit();
@@ -110,4 +136,5 @@ class SymptomsController extends AdminController
 
         return $form;
     }
+    
 }

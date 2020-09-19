@@ -16,7 +16,7 @@ class CreateIllnessTable extends Migration
         Schema::create('mdc_illness', function (Blueprint $table) {
             $table->id();
             $table->string('zh_name');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->text('other_names')->comment('Separated by ","');
             $table->integer("subject_id");
             // 病症与病徵单独建关联表，还有额外的病症描述 and $table->boolean('main_symptom');

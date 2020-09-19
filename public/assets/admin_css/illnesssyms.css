@@ -1,0 +1,57 @@
+select.illnesssyms ~ .select2-container--default .select2-selection--multiple .select2-selection__clear{
+    display: none;
+}
+select.illnesssyms ~ .select2-container--default{
+    pointer-events: none;
+}
+select.illnesssyms ~ .select2-container--default .select2-selection--multiple .select2-selection__choice{
+    padding: 10px 12px;
+    width: 100%;
+    background: transparent;
+    color: #000;
+    border-width: 0 0 2px 0;
+    border-radius: 0;
+    pointer-events: none;
+}
+select.illnesssyms ~ .select2-container--default .select2-selection--multiple .select2-selection__choice > label{
+    position: absolute;
+    right: 180px;
+}
+select.illnesssyms ~ .select2-container--default .select2-selection--multiple .select2-selection__choice > .bootstrap-switch,
+select.illnesssyms ~ .select2-container--default .select2-selection--multiple .select2-selection__choice > input{
+    position: absolute;
+    right: 80px;
+    margin-top: -8px;
+    pointer-events: auto;
+}
+select.illnesssyms ~ .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+    position: absolute;
+    right: 20px;
+    font-size: 20px;
+    line-height: 18px;
+    color: #000;
+    pointer-events: auto;
+}
+select.illnesssyms ~ .select2-container--default .select2-search--inline{
+    background: #3c8dbc;
+    margin-top: 5px;
+    height: 30px;
+    border-radius: 5px;
+    padding: 5px 12px;
+    color: #FFF;
+    cursor: pointer;
+    pointer-events: auto;
+}
+select.illnesssyms ~ .select2-container--default .select2-search--inline .select2-search__field{
+    opacity: 0;
+}
+
+.illness_sym{
+    margin: 0 0 0 20px;
+}
+.illness_sym > label{
+    margin: 0 12px;
+}
+.illness_sym > input{
+    pointer-events: auto;
+}

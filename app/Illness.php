@@ -27,6 +27,6 @@ class Illness extends Model
     public function illnesssyms()
     {
         $pivotTable = 'mdc_illness_sym';
-        return $this->belongsToMany('App\IllnessSym', $pivotTable, 'illness_id', 'symptom_id')->withPivot('if_main', 'symptom_des')->withTimestamps();
+        return $this->belongsToMany('App\Symptoms', $pivotTable, 'illness_id', 'symptom_id')->withTimestamps();
     }
 }

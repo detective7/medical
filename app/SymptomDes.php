@@ -9,14 +9,14 @@ class SymptomDes extends Model
     protected $table = 'mdc_symptom_des';
     
     protected $fillable = [
-        'symptom_id',
+        'symptoms_id',
         'zh_symptom_des',
         'order'
     ];
 
     public function symptoms()
     {
-        return $this->belongsTo(Symptoms::class, 'symptom_id');
+        return $this->belongsTo(Symptoms::class, 'symptoms_id');
     }
 
 }

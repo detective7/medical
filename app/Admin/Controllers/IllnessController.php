@@ -118,8 +118,8 @@ class IllnessController extends AdminController
             $ifmain = rtrim($ifmain, ",");
             $showDes = rtrim($showDes, ",");
             // print_r($ifmain);die;
-            $form->hidden('initifmain', __('initifmain'))->default($ifmain);
-            $form->hidden('initshowDes', __('initifmain'))->default($showDes);
+            $form->hidden('initifmain', __('initifmain'))->default($ifmain)->disable();
+            $form->hidden('initshowDes', __('initifmain'))->default($showDes)->disable();
         }else{
             $form->multipleSelect('illnesssyms', __('Symptom'))->options(Symptoms::get()->pluck('zh_name', 'id'));
         }

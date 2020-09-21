@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS admin_menu;
+DROP TABLE IF EXISTS admin_operation_log;
+DROP TABLE IF EXISTS admin_permissions;
+DROP TABLE IF EXISTS admin_role_menu;
+DROP TABLE IF EXISTS admin_role_permissions;
+DROP TABLE IF EXISTS admin_role_users;
+DROP TABLE IF EXISTS admin_roles;
+DROP TABLE IF EXISTS admin_user_permissions;
+DROP TABLE IF EXISTS admin_users;
+DROP TABLE IF EXISTS mdc_body_parts;
+DROP TABLE IF EXISTS mdc_illness;
+DROP TABLE IF EXISTS mdc_illness_symptoms;
+DROP TABLE IF EXISTS mdc_subjects;
+DROP TABLE IF EXISTS mdc_symptom_des;
+DROP TABLE IF EXISTS mdc_symptoms;
+DROP TABLE IF EXISTS mdc_users;
+DROP TABLE IF EXISTS migrations;

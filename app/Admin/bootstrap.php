@@ -19,6 +19,9 @@
  */
 
 Encore\Admin\Form::forget(['map', 'editor']);
+use App\Admin\Extensions\MultipleColumn;
+Encore\Admin\Form::extend('multipleColumn', MultipleColumn::class);
+
 Admin::css('/assets/admin_css/otherNames.css');
 Admin::script("$(document.body).append('<script src=\'/assets/admin_js/otherNames.js\'>');");
 Admin::script("$(document.body).append('<script src=\'/assets/admin_js/caseSharing.js\'>');");

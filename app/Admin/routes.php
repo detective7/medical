@@ -18,5 +18,6 @@ Route::group([
     $router->resource('symptomDes', SymptomDesController::class);
     $router->resource('illness', IllnessController::class);
     $router->get('/get_symptom', 'ToolController@getSymptoms');
+    $router->get('/get_options', 'ToolController@getOptions')->name('get_options');
 
 });

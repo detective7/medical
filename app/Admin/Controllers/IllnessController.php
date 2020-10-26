@@ -124,6 +124,13 @@ class IllnessController extends AdminController
             $form->multipleSelect('illnesssyms', __('Symptom'))->options(Symptoms::get()->pluck('zh_name', 'id'));
         }
 
+        // $form->multipleColumn('other_name',function ($column){
+        //     $column->width(3)
+        //            ->text('other_name','')
+        //            ->placeholder('other name')
+        //            ->setWidth(12,0);
+        // },$form);
+
         $form->textarea('high_ranking_person', __('High ranking person'));
         $form->textarea('prevention_method', __('Prevention method'));
         $form->textarea('inspection_and_diagnosis', __('Inspection and diagnosis'));
